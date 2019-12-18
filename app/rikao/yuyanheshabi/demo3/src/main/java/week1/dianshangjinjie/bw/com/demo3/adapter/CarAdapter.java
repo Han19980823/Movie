@@ -1,0 +1,83 @@
+package week1.dianshangjinjie.bw.com.demo3.adapter;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.TextView;
+
+import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import week1.dianshangjinjie.bw.com.demo3.R;
+import week1.dianshangjinjie.bw.com.demo3.bean.CarBean;
+import week1.dianshangjinjie.bw.com.demo3.view.App;
+
+/**
+ * 作者：Han98
+ * 创建时间：2019/11/22
+ * 描述：TODO
+ * 最近修改：2019/11/22 15:53 modify by liujc
+ */
+public class CarAdapter extends RecyclerView.Adapter<CarAdapter.Holder> {
+    List<CarBean.ResultBean> result;
+    Context context;
+
+
+    public CarAdapter(List<CarBean.ResultBean> result, Context context) {
+        this.result = result;
+        this.context = context;
+    }
+
+    @NonNull
+    @Override
+    public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view   = LayoutInflater.from(context).inflate(R.layout.car_item,parent,false);
+        return new Holder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull Holder holder, int position) {
+        holder.text_name.setText(result.get(position).getCategoryName());
+        List<CarBean.ResultBean.ShoppingCartListBean> shoppingCartList = result.get(position).getShoppingCartList();
+        LinearLayoutManager manager = new LinearLayoutManager(context);
+        manager.setOrientation(LinearLayoutManager.VERTICAL);
+        holder.item_recy.setLayoutManager(manager);
+        CarItemAdapter carItemAdapter = new CarItemAdapter(shoppingCartList, context);
+        holder.item_recy.setAdapter(carItemAdapter);
+        if (holder.car_check.isChecked()) {
+            result.get(position).setIschecked(true);
+            carItemAdapter.shoppingCartList.get(position).setiScheck(true);
+
+
+        }else{
+            result.get(position).setIschecked(false);
+            carItemAdapter.shoppingCartList.get(position).setiScheck(false);
+
+        }
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return result.size();
+    }
+
+    class Holder extends RecyclerView.ViewHolder{
+        @BindView(R.id.item_recy)
+        RecyclerView item_recy;
+        @BindView(R.id.text_name)
+        TextView text_name;
+        @BindView(R.id.car_check)
+        CheckBox car_check;
+        public Holder(@NonNull View itemView) {
+            super(itemView);
+            ButterKnife.bind(this,itemView);
+        }
+    }
+}

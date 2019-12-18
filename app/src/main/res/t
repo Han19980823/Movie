@@ -1,0 +1,4 @@
+4、简述Fragment中add,show,replace的区别，在Android Studio中新建txt写即可
+add 就是添加fragment
+show 就是显示fragment
+replace 就是替换fragment

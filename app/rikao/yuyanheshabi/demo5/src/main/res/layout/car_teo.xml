@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:id="@+id/two_checked"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:background="@drawable/shape"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="120dp">
+
+
+
+
+        <RelativeLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_margin="10dp"
+                android:id="@+id/two_img"
+                android:layout_height="80dp"/>
+            <TextView
+                android:id="@+id/te_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="100dp"
+                android:text="111111" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/te_name"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="100dp"
+                android:text="111111"
+                android:textColor="@color/colorPrimary" />
+            <week1.dianshangjinjie.bw.com.demo5.custom.NumView
+                android:id="@+id/num"
+                android:layout_width="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content"/>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

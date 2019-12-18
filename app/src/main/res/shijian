@@ -1,0 +1,2 @@
+事件分发就是当父控件与子控件发生冲突的时候产生的事件分发机制 首先分为三种一种是activity 的 还有viewhgroup的 还有view 的
+interceptouchevent touchevent dispatchevent;
